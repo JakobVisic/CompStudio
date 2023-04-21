@@ -4,8 +4,6 @@ import { Canvas,  } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import Popup from './Popup.jsx'
 import React, { useState } from 'react';
-import Interface from './Interface.jsx'
-import App from './MyContextProvider'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -27,9 +25,6 @@ root.render(
             <Experience /> 
 
         </Canvas>
-        {/* <Interface />
-         */}
-        <App></App>
     </>
     
 
