@@ -15,7 +15,7 @@ import * as THREE from 'three'
 // studio.extend(extension)
 
 import {getProject} from '@theatre/core'
-import demoProjectState from '/state.json'
+import demoProjectState from './state.json'
 
 
 const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')

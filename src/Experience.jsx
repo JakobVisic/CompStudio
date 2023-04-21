@@ -3,30 +3,29 @@ import { useCursor, Html, CameraControls, PresentationControls, shaderMaterial, 
 import { useFrame, extend } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useRef, useState, useHelper, useEffect } from 'react'
-import { useControls } from 'leva'
+import { Leva, useControls } from 'leva'
 
 // theatre.js stuff
-import studio from '@theatre/studio'
-import extension from '@theatre/r3f/dist/extension'
+// import studio from '@theatre/studio'
+// import extension from '@theatre/r3f/dist/extension'
 
-import {getProject} from '@theatre/core'
 import {editable as e, SheetProvider, PerspectiveCamera} from '@theatre/r3f'
+import {getProject} from '@theatre/core'
 import demoProjectState from './state.json'
 
 // studio.extend(extension)
-studio.initialize()
+// studio.initialize()
+
+
+const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')
 
 // Model Import
 import { KeysModel } from './Keys'
 import { NewSetup2Model } from './New-Setup2'
-import { DeskModel } from './Keyboard'
 
 // My Imports
 import MyContext from './MyContext';
 import { HtmlPopups } from './HtmlPopups'
-
-const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')
-// const bookSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Book Sheet')
 
 const HullMaterial = shaderMaterial(
     {
@@ -91,6 +90,7 @@ export default function Experience()
     const [monitorModeOn, setMonitorModeOn] = useState(false);
 
     return <>
+        <Leva hidden />
         <MyContext.Provider
             value={{
                 bookModeOn,

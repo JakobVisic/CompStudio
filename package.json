@@ -20,6 +20,7 @@
     "@theatre/core": "^0.5.1",
     "@theatre/r3f": "^0.5.1",
     "@theatre/studio": "^0.5.1",
+    "jshint": "^2.13.6",
     "leva": "^0.9.34",
     "r3f-perf": "^6.6.3",
     "react": "18.2",

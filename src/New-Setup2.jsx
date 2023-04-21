@@ -6,7 +6,7 @@ import { useControls } from 'leva'
 
 import {getProject} from '@theatre/core'
 import {editable as e, SheetProvider, PerspectiveCamera} from '@theatre/r3f'
-import demoProjectState from '/state.json'
+import demoProjectState from './state.json'
 
 import MyContext from './MyContext';
 
