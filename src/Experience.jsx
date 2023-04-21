@@ -18,7 +18,6 @@ studio.initialize()
 
 // Model Import
 import { KeysModel } from './Keys'
-import { NewSetupModel } from './New-setup'
 import { NewSetup2Model } from './New-Setup2'
 import { DeskModel } from './Keyboard'
 
