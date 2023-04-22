@@ -40,6 +40,10 @@ export default function Experience({start})
             iterationCount: 1, 
             range: [34 , 47]
         }))
+        demoSheet.project.ready.then(() => demoSheet.sequence.play({
+            iterationCount: 1, 
+            range: [0 , 0]
+        }))
         firstStart = false;
     }
 
