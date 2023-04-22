@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
-import { useCursor, Html, CameraControls, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, GizmoHelper, Float, PivotControls, Stage, Backdrop, useProgress } from '@react-three/drei'
+import { useCursor, Html, Backdrop, CameraControls, ContactShadows, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, GizmoHelper, Float, PivotControls, Stage } from '@react-three/drei'
 // import { Leva, useControls } from 'leva'
 
 
@@ -102,13 +102,13 @@ export default function Experience({start})
                         floatingRange={[-1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
                         floatIntensity={0.05} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
                     >
-                        <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0, 0]} fov={75}/>
+                        <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0, 0]} fov={75}  />
                     </Float>
                 
-                    {/* <e.pointLight theatreKey="Light" position={[10, 10, 10]}/> */}
+                    {/* <e.pointLight theatreKey="Light" position={[10, 10, 10]} castShadows/> */}
                     <color args={ [ '#ffffff' ] } attach="background" />
                     {/* <Grid infiniteGrid={true} /> */}
-              
+
                     <HtmlPopups 
                         bookModeOn={bookModeOn}
                         paperModeOn={paperModeOn}
@@ -119,6 +119,7 @@ export default function Experience({start})
                     />
                         <NewSetup2Model 
                             rotation={[0,Math.PI * 1.5,0]}
+                            castShadow
                         />
                         <group
                             rotation={[0,Math.PI * 1.5,0]}
@@ -132,9 +133,6 @@ export default function Experience({start})
                                 onClick={ () => setDeskModeOn(true) }
                                 deskModeOn={deskModeOn}
                             />
-                            {/* <HighlightKeysModel 
-                                scale={1.005}
-                            /> */}
                         </group>
                 </Stage>
             </SheetProvider>

@@ -59,7 +59,7 @@ export function NewSetup2Model(props) {
       sheet={getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')} 
     >
       
-      <group {...props} dispose={null}>
+      <group {...props} dispose={null} receiveShadow castShadow >
 
         //********************************************************************************************************************************************************************************
         // Desk
@@ -69,7 +69,8 @@ export function NewSetup2Model(props) {
           geometry={nodes.Desk.geometry} 
           material={materials.Desk} 
           scale={0.2} 
-          castShadow  
+          castShadows
+          castShadow
           receiveShadow
           onClick=
           { (e) => 
@@ -160,11 +161,11 @@ export function NewSetup2Model(props) {
             console.log('unhover monitor')
           }}
         >  
-          <group rotation={[Math.PI / 2, 0, 0]} castShadow  >
+          <group rotation={[Math.PI / 2, 0, 0]} castShadows receiveShadows >
             <group scale={0.01}>
-              <mesh geometry={nodes.Monitor_LP_lambert1_0_1.geometry} material={materials.lambert1} castShadow  />
-              <mesh geometry={nodes.Monitor_LP_lambert1_0_2.geometry} material={materials['Material.010']} castShadow   />
-              <mesh geometry={nodes.Monitor_LP_lambert1_0_3.geometry} material={materials.Cam_ring} castShadow  />
+              <mesh geometry={nodes.Monitor_LP_lambert1_0_1.geometry} material={materials.lambert1} castShadows receiveShadows />
+              <mesh geometry={nodes.Monitor_LP_lambert1_0_2.geometry} material={materials['Material.010']} castShadows   receiveShadows/>
+              <mesh geometry={nodes.Monitor_LP_lambert1_0_3.geometry} material={materials.Cam_ring} castShadows receiveShadows />
             </group>
           </group>
         </e.group>
