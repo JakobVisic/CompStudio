@@ -30,6 +30,7 @@ import { HtmlPopups } from './HtmlPopups'
 
 
 let firstStart = true;
+let finishedFirstAnimation = false;
 
 export default function Experience({start})
 {
@@ -38,14 +39,14 @@ export default function Experience({start})
         console.log("start");
         demoSheet.project.ready.then(() => demoSheet.sequence.play({
             iterationCount: 1, 
-            range: [34 , 47]
+            range: [34 , 47],
+            // range: [0,0]
         }))
-        demoSheet.project.ready.then(() => demoSheet.sequence.play({
-            iterationCount: 1, 
-            range: [0 , 0]
-        }))
+        finishedFirstAnimation = true;
+      
         firstStart = false;
     }
+  
 
     // for leva testing
     // let { position, rotation, size } = useControls({
