@@ -32,21 +32,37 @@ import { HtmlPopups } from './HtmlPopups'
 let firstStart = true;
 let finishedFirstAnimation = false;
 
+
 export default function Experience({start})
 {
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    if (start == true && firstStart == true) {
-        console.log("start");
+
+
+    const yourFunction = async () => {
+
+        if (start == true && firstStart == true) {
+            console.log("start");
+            demoSheet.project.ready.then(() => demoSheet.sequence.play({
+                iterationCount: 1, 
+                range: [34 , 47],
+                // range: [0,0]
+            }))
+          
+          
+            firstStart = false;
+        }
+        await delay(10000);
+        console.log("Waited 5s");
+       
         demoSheet.project.ready.then(() => demoSheet.sequence.play({
             iterationCount: 1, 
-            range: [34 , 47],
-            // range: [0,0]
+            range: [0 , 0.1]
         }))
-        finishedFirstAnimation = true;
-      
-        firstStart = false;
-    }
+
+      };
   
+      yourFunction();
 
     // for leva testing
     // let { position, rotation, size } = useControls({
