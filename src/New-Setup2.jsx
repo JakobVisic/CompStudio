@@ -3,41 +3,13 @@ import * as THREE from 'three'
 import { extend } from '@react-three/fiber'
 import { useGLTF, shaderMaterial } from '@react-three/drei'
 import { useControls } from 'leva'
+import MyContext from './MyContext';
+import { HullMaterial } from './HullMaterial'
 
 import {getProject} from '@theatre/core'
 import {editable as e, SheetProvider, PerspectiveCamera} from '@theatre/r3f'
 import demoProjectState from './state.json'
-
-import MyContext from './MyContext';
-
 const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')
-
-
-//********************************************************************************************************************************************************************************
-// Hull Shader Material
-//********************************************************************************************************************************************************************************
-const HullMaterial = shaderMaterial(
-  {
-    color: new THREE.Color('#3059ff'),
-    size: 1.8
-  },
-  /*glsl*/ `
-  uniform float size;
-  
-  void main() {
-      vec3 transformed = position + normal * size/100.;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.);
-  }
-  `,
-      /*glsl*/ `
-  uniform vec3 color;
-  
-  void main() {
-      gl_FragColor = vec4(color, 1.);
-  }
-  `
-)
-extend({ HullMaterial })
 
 
 //********************************************************************************************************************************************************************************
@@ -79,6 +51,8 @@ export function NewSetup2Model(props) {
         }
     })
 
+    
+
   return (
 
     <SheetProvider 
@@ -90,7 +64,8 @@ export function NewSetup2Model(props) {
         //********************************************************************************************************************************************************************************
         // Desk
         //********************************************************************************************************************************************************************************
-        <mesh 
+        <e.mesh 
+          theatreKey='desk'
           geometry={nodes.Desk.geometry} 
           material={materials.Desk} 
           scale={0.2} 
@@ -474,4 +449,4 @@ export function NewSetup2Model(props) {
   )
 }
 
-useGLTF.preload('/model/MyRoom-Main-2.glb')
+useGLTF.preload('/model/New-Setup2.glb')

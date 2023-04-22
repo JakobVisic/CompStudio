@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @import url("https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800;900&display=swap');
+
 
 html,
 body,
@@ -87,14 +87,16 @@ p
     grid-column-gap: 0px;
     grid-row-gap: 25px;
 
-    width: 100%;
+    /* width: 100%; */
+    font-family: 'Montserrat', sans-serif;
 }
 
-.PhonePanel h1, p
+.PhonePanel h1
 {
     width: Auto;
     height: auto;
     text-align: Center;
+    font-weight: 700;
 }
 
 .PhonePanel p
@@ -102,6 +104,7 @@ p
     width: Auto;
     height: auto;
     text-align: Center;
+    font-size: 30px;
 }
 
 .PhonePanel1
@@ -141,23 +144,27 @@ p
     grid-template-columns: 1fr;
     grid-template-rows: 5fr;
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-row-gap: 25px;
     grid-column-start: 1;
 
     width: 100%;
-    background: rgb(46, 46, 46);
+    /* background: rgb(46, 46, 46); */
     border-radius: 50px;
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
+
+    
 }
 
 .ContactGrid a
 {
   font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .ContactGrid h2
 {
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .ContactTextGrid
@@ -221,7 +228,7 @@ p
     grid-column-start: 1;
 
     width: 100%;
-    
+    font-family: 'Montserrat', sans-serif;
     /* background: rgb(46, 46, 46); */
     /* border-radius: 50px; */
     /* padding: 20px 40px; */
@@ -232,7 +239,8 @@ p
     text-align: left;
     justify-content: left;
     /* text-indent: 60px; */
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .BookGridPage1 
@@ -248,6 +256,36 @@ p
     grid-column-end: 2;
     margin: 10px;
 }
+
+.mugWrapper
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    border-radius: 100px;
+}
+
+.htmlMug a 
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.mugWrapper:hover
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    color:rgb(255, 238, 0);
+    background-color: rgb(0, 55, 255);
+}
+
 
 
 /**
@@ -267,3 +305,94 @@ p
     text-align: center;
     font-size: 2vh;
 }
+
+/**
+/ Loading Screen
+*/
+.loadingScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0%;
+    right: 0;
+    background-color: inherit;
+    background-image: inherit;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    transition: opacity 4s;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .loadingScreen__board {
+    /* padding: 64px; */
+    width: 400px;
+    /* background-color: rgba(110, 173, 255, 0.42); */
+    border-radius: 24px;
+    text-align: center;
+    border: none 6px rgb(0 0 0 / 12%);
+    /* border-style: ridge; */
+    transition: opacity 0.4s;
+    position: absolute;
+    bottom: 40%;
+    left: calc(50vw - 200px);
+  }
+  
+  .loadingScreen__title {
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  
+  .loadingScreen__button {
+    padding: 8px 32px;
+    background-color: rgba(0, 0, 0, 0.24);
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 2.5rem;
+    border-radius: 8px;
+    transition: background-color 0.4s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .loadingScreen__button:hover {
+    background-color: rgba(0, 0, 0, 0.79);
+    cursor: pointer;
+  }
+  
+  .loadingScreen__button:disabled {
+    opacity: 0;
+    cursor: not-allowed;
+  }
+  
+  .loadingScreen__progress {
+    position: absolute;
+    /* margin-top: 0px; */
+    bottom: 20%;
+    left: 0;
+    width: 80vw;
+    left: calc(50vw - 40vw);
+    height: 12px;
+  }
+  
+  .loadingScreen__progress__value {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.207);
+    transition: width 0.4s;
+  }
+  
+  .loadingScreen--started {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loadingScreen--started .loadingScreen__board {
+    opacity: 0;
+  }
+  

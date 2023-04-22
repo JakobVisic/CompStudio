@@ -8,12 +8,14 @@ const MyContext = createContext({
   mugModeOn: false,
   phoneModeOn: false,
   monitorModeOn: false,
+  keysModeOn: false,
   setBookModeOn: () => {},
   setPaperModeOn: () => {},
   setDeskModeOn: () => {},
   setMugModeOn: () => {},
   setPhoneModeOn: () => {},
   setMonitorModeOn: () => {},
+  setKeysModeOn: () => {}
 });
 // const MyContext = React.createContext();
 

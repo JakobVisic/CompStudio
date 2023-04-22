@@ -21,6 +21,7 @@ import { useCursor, Html, CameraControls } from '@react-three/drei'
 import {getProject} from '@theatre/core'
 import {editable as e, SheetProvider, PerspectiveCamera} from '@theatre/r3f'
 import demoProjectState from './state.json'
+// import Coffee from './Coffee'
 
 export function HtmlPopups(props) {
 
@@ -37,6 +38,9 @@ export function HtmlPopups(props) {
             <SheetProvider 
                 sheet={getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')}
             >   
+                {/**************************************************
+                    Game Screen
+                ***************************************************/}
                 <e.group theatreKey='gameScreen'>
                     <Html
                         style={{
@@ -60,7 +64,9 @@ export function HtmlPopups(props) {
                     </Html>
                 </e.group>
                 
-                // PAPER
+                {/**************************************************
+                    Paper
+                ***************************************************/}
                 <e.group 
                     theatreKey='paperHtml' 
                     // scale={(0.011)} position={[0.473, 0.41, -0.065]} rotation-y={[Math.PI * -0.104]}
@@ -110,7 +116,6 @@ export function HtmlPopups(props) {
                                     heavy objects against the force of gravity, kick soccer balls, pedal two-wheeled vehicles, and hike nature trails for 
                                     hours. In my spare time, I like to listen to audiobooks, play video games, watch TV and movies, and occasionally 
                                     take photographs.–
-                            
                                 </p>
                                 <br></br>
                             </div>
@@ -119,11 +124,11 @@ export function HtmlPopups(props) {
                     </Html>
                 </e.group>
             
-                /**
-                * Book
-                */
+                {/**************************************************
+                    Book
+                ***************************************************/}
                 <e.group theatreKey='bookHtml' 
-                    position-y={ props.monitorModeOn ? 0.413 : 0.439}
+                    position-y={ props.monitorModeOn ? 0.411 : 0.437}
                 >
                     <Html
                         wrapperClass="htmlBook"
@@ -133,11 +138,11 @@ export function HtmlPopups(props) {
                             color: 'black',
                             padding: '50px',
                             width: '1350px',
-                            height: '1000px'
+                            height: '950px'
                         }}
                         transform
-                        scale={props.bookModeOn ? 0.008 : 0}
-                        position={[-0.396, 0, -0.028]}
+                        scale={props.bookModeOn ? 0.0075 : 0}
+                        position={[-0.397, 0, -0.0299]}
                         rotation-x={[Math.PI * -0.5]}
                         rotation-z={[Math.PI * 0.146]}
                         // visible={false}
@@ -217,10 +222,13 @@ export function HtmlPopups(props) {
                     </Html>
                 </e.group>
             
-                // Phone
+                {/**************************************************
+                    Phone
+                ***************************************************/}
                 <e.group 
                     theatreKey='phoneHtml'
                     // scale={(0.002)} position={[0.31, 0.413, 0.121]} rotation-x={[Math.PI * -0.151]} rotation-y={[Math.PI * -0.021]} rotation-z={[Math.PI * -0.539]}
+                    // position={[0.31, 0.4125, 0.11]}
                 >
                     <Html
                         wrapperClass="htmlPhone"
@@ -229,15 +237,15 @@ export function HtmlPopups(props) {
                             backgroundColor: 'black',
                             color: 'white',
                             padding: '50px',
-                            width: '1812px',
-                            height: '2176px',
-                            borderRadius: '50px'
+                            width: '1820px',
+                            height: '2190px',
+                            borderRadius: '60px'
                         }}
                         transform
-                        scale={props.phoneModeOn ? 1 : 0}
-                        // position={[0.31, 0.4125, 0.12]}
-                        // rotation-x={[Math.PI * -0.5]}
-                        position-z={2}
+                        scale={props.phoneModeOn ? 0.96 : 0}
+                        position={[-0.45, 0.2, 0]}
+                        rotation-z={[Math.PI * -0.001]}
+                        // position-z={2}
                         visible={false}
                         occlude
                         onPointerOver={ (e) => {e.stopPropagation(); }  }
@@ -246,7 +254,7 @@ export function HtmlPopups(props) {
                         <div className='PhoneGrid'>
                             <div className="PhonePanel1">
                                 <div className="PhonePanelImage">
-                                        <img src={'/model/HeadShot.png'}></img>
+                                    <img src={'/model/HeadShot.png'}></img>
                                 </div>
                             </div>
                             <div className="PhonePanel">
@@ -255,7 +263,7 @@ export function HtmlPopups(props) {
                                 <h1>Jakob Visic</h1>
                             </div>
                             <div className="ContactGrid">
-                               
+
                                 <div className="ContactTextGrid">
                                     <h2>Portfolio</h2>
                                     <br></br>
@@ -277,9 +285,9 @@ export function HtmlPopups(props) {
                     </Html>
                 </e.group>
 
-                
-
-                // Mug
+                {/**************************************************
+                    Mug
+                ***************************************************/}
                 <e.group 
                     theatreKey='buyMeCoffee'
                     // scale={(0.002)} position={[0.31, 0.413, 0.121]} rotation-x={[Math.PI * -0.151]} rotation-y={[Math.PI * -0.021]} rotation-z={[Math.PI * -0.539]}
@@ -289,11 +297,12 @@ export function HtmlPopups(props) {
                         wrapperClass="htmlMug"
                         style={{
                             opacity: props.mugModeOn ?  1 : 0,
-                            backgroundColor: 'black',
-                            color: 'white',
+                            backgroundColor: '',
+                            color: 'none',
                             padding: '50px',
                             width: '400',
-                            height: '400'
+                            height: '400',
+                            borderRadius: '100px'
                         }}
                         transform
                         position-y={ props.mugModeOn ? 0.411 : 0}
@@ -305,13 +314,15 @@ export function HtmlPopups(props) {
                         visible={false}
                         occlude
                     >
+                        <div className='mugWrapper'>
+                        <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee" ></img>
                         <a 
                             href={"https://www.buymeacoffee.com/VISIC"}
                             target= {"_blank"}
                             style={{
                                 // opacity: props.mugeModeOn ?  1 : 0,
-                                backgroundColor: 'black',
-                                color: 'white',
+                                // backgroundColor: 'black',
+                                // color: 'black',
                                 padding: '50px',
                                 width: '400',
                                 height: '400',
@@ -320,9 +331,11 @@ export function HtmlPopups(props) {
                         >
                             BUY ME A COFFEE
                         </a>
+                        </div>
                     </Html>
                 </e.group>
             </SheetProvider>
     </>
 }
   
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="VISIC" data-color="#FFDD00" data-emoji=""  data-font="Lato" data-text="Fun my caffeine addiction" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
