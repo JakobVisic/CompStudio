@@ -16,7 +16,7 @@ const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('D
 // Main Export function
 //********************************************************************************************************************************************************************************
 export function NewSetup2Model(props) {
-  const { nodes, materials } = useGLTF('/model/New-Setup2.glb')
+  const { nodes, materials } = useGLTF('/model/New-Setup2.glb');
 
   const {deskModeOn, setDeskModeOn} = useContext(MyContext);
   const {phoneModeOn, setPhoneModeOn} = useContext(MyContext);
@@ -80,7 +80,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [0, 2]
+                  range: [12, 14.025]
                 }))
                 setDeskModeOn(true)
                 console.log('deskMode = ' + deskModeOn);
@@ -89,7 +89,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [22, 24]
+                  range: [34, 36]
                 }))
                 setDeskModeOn(false)
                 console.log('deskMode = ' + deskModeOn);
@@ -132,7 +132,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [26, 28]
+                  range: [38, 40]
                 }))
                 setMonitorModeOn(true)
                 setZoomIn(true)
@@ -142,7 +142,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [28, 30]
+                  range: [40, 42]
                 }))
                 setMonitorModeOn(false)
                 setZoomIn(false)
@@ -196,7 +196,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [10, 12]
+                  range: [22, 24]
                 }))
                 setPaperModeOn(true)
                 setZoomIn(true)
@@ -206,7 +206,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [12, 14]
+                  range: [24, 26]
                 }))
                 setPaperModeOn(false)
                 setZoomIn(false)
@@ -261,7 +261,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [14, 16]
+                  range: [26, 28]
                 }))
                 setPhoneModeOn(true)
                 setZoomIn(true)
@@ -271,7 +271,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [16, 18]
+                  range: [28, 30]
                 }))
                 setPhoneModeOn(false)
                 setZoomIn(false)
@@ -348,7 +348,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [18, 20]
+                  range: [30, 32]
                 }))
                 setMugModeOn(true)
                 setZoomIn(true)
@@ -358,7 +358,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [20, 22]
+                  range: [32, 34]
                 }))
                 setMugModeOn(false)
                 setZoomIn(false)
@@ -403,7 +403,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [6, 8]
+                  range: [18, 20]
                 }))
                 setBookModeOn(true)
                 setZoomIn(true)
@@ -413,7 +413,7 @@ export function NewSetup2Model(props) {
               {
                 demoSheet.project.ready.then(() => demoSheet.sequence.play({
                   iterationCount: 1, 
-                  range: [8, 10]
+                  range: [20, 22]
                 }))
                 setBookModeOn(false)
                 setZoomIn(false)

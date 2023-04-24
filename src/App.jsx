@@ -21,10 +21,13 @@ export default function App()
 
     return (
         <>
-            <Leva hidden />
+            {/* <Leva 
+                // hidden 
+            /> */}
             <Canvas
                 dpr={[1, 2]}
                 shadows
+                
                 aspect={(1920, 1080)}
             >
                     <Experience start={playButtonPressed}/>

@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useCursor, Html, Backdrop, CameraControls, ContactShadows, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, GizmoHelper, Float, PivotControls, Stage } from '@react-three/drei'
-// import { Leva, useControls } from 'leva'
+import { Leva, useControls } from 'leva'
 
 
 // theatre.js stuff
@@ -15,7 +15,7 @@ import {getProject} from '@theatre/core'
 import demoProjectState from './state.json'
 
 // studio.extend(extension)
-// studio.initialize()
+// studio.initialize();
 
 const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')
 
@@ -45,43 +45,44 @@ export default function Experience({start})
             console.log("start");
             demoSheet.project.ready.then(() => demoSheet.sequence.play({
                 iterationCount: 1, 
-                range: [34 , 47],
+                range: [0 , 8.25],
                 // range: [0,0]
             }))
           
           
             firstStart = false;
         }
-        await delay(10000);
+        // await delay(10000);
         console.log("Waited 5s");
        
-        demoSheet.project.ready.then(() => demoSheet.sequence.play({
-            iterationCount: 1, 
-            range: [0 , 0.1]
-        }))
+        // demoSheet.project.ready.then(() => demoSheet.sequence.play({
+        //     iterationCount: 1, 
+        //     range: [0 , 0.1]
+        // }))
 
       };
   
       yourFunction();
 
     // for leva testing
-    // let { position, rotation, size } = useControls({
-    //     position: {
-    //       x: 0,
-    //       y: 0,
-    //       z: 0
-    //     },
-    //     rotation: {
-    //       x: 0,
-    //       y: 0,
-    //       z: 0
-    //     },
-    //     size: {
-    //       x: 0,
-    //       y: 0,
-    //       z: 0
-    //     }
-    // })
+    let { position, rotation, size } = useControls({
+        position: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        rotation: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        size: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+
+    })
 
     // const [showOverlay, setShowOverlay] = useState(false);
     const handleButtonClick = () => {
@@ -115,10 +116,10 @@ export default function Experience({start})
             <SheetProvider 
                 sheet={getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')}
             >   
-                <Stage intensity={0.001} shadows="contact" >
+                {/* <Stage intensity={0.001} shadows="contact" > */}
 
                     <Float
-                        speed={deskModeOn ? 0 : 0.9} // Animation speed, defaults to 1
+                        speed ={deskModeOn ? 0 : 0.9} // Animation speed, defaults to 1
                         rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
                         floatingRange={[-1, 1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
                         floatIntensity={0.05} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
@@ -126,7 +127,14 @@ export default function Experience({start})
                         <PerspectiveCamera theatreKey="Camera" makeDefault position={[0, 0, 0]} fov={75}  />
                     </Float>
                 
-                    {/* <e.pointLight theatreKey="Light" position={[10, 10, 10]} castShadows/> */}
+                    
+                    <pointLight theatreKey="Light" 
+                        // leva test
+                        // position={[position.x, position.y, position.z]} 
+                        // intensity={size.x} 
+                        position={[0, 2, 0.75]} 
+                        intensity={2.65} 
+                        castShadows/>
                     <color args={ [ '#ffffff' ] } attach="background" />
                     {/* <Grid infiniteGrid={true} /> */}
 
@@ -155,7 +163,7 @@ export default function Experience({start})
                                 deskModeOn={deskModeOn}
                             />
                         </group>
-                </Stage>
+                {/* </Stage> */}
             </SheetProvider>
         </MyContext.Provider>
     </>
