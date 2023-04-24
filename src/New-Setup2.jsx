@@ -33,23 +33,23 @@ export function NewSetup2Model(props) {
   const [hoverBook, setHoverBook] = useState(false)
   const [hoverPhone, setHoverPhone] = useState(false)
   
-      let { position, rotation, size } = useControls({
-        position: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        rotation: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        size: {
-          x: 0,
-          y: 0,
-          z: 0
-        }
-    })
+    //   let { position, rotation, size } = useControls({
+    //     position: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     rotation: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     size: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     }
+    // })
 
     
 

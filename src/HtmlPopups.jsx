@@ -14,6 +14,7 @@ import React, { useRef, useState, useContext } from 'react'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useCursor, Html, CameraControls } from '@react-three/drei'
+import { useControls } from 'leva'
 
 /**
  * Theatre.js Imports
@@ -33,6 +34,24 @@ export function HtmlPopups(props) {
     {
         websiteLink = "";
     }
+
+    let { position, rotation, size } = useControls({
+        position: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        rotation: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        size: {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+    })
   
     return <>
             <SheetProvider 
@@ -288,30 +307,31 @@ export function HtmlPopups(props) {
                 {/**************************************************
                     Mug
                 ***************************************************/}
-                <e.group 
-                    theatreKey='buyMeCoffee'
-                    // scale={(0.002)} position={[0.31, 0.413, 0.121]} rotation-x={[Math.PI * -0.151]} rotation-y={[Math.PI * -0.021]} rotation-z={[Math.PI * -0.539]}
-                    scale={ props.mugModeOn ? 0.021 : 0}
-                >
+            
                     <Html
                         wrapperClass="htmlMug"
                         style={{
-                            opacity: props.mugModeOn ?  1 : 0,
-                            backgroundColor: '',
+                            // opacity: props.mugModeOn ?  1 : 0,
+                            // backgroundColor: 'white',
                             color: 'none',
                             padding: '50px',
                             width: '400',
                             height: '400',
-                            borderRadius: '100px'
+                            borderRadius: '100px',
+
                         }}
-                        transform
-                        position-y={ props.mugModeOn ? 0.411 : 0}
-                        scale={ props.mugModeOn ? 1 : 0}
-                        // scale={(0.0021,0.0021,0.0021)}
-                        // position={[0.31, 0.4125, 0.12]}
+                        // transform
+                        // position-y={ props.mugModeOn ? 0.56 : 0}
+                        scale={ props.mugModeOn ? 0.01: 0.0000}
+                        // scale={(0.0082)}
+                        position={[0.27, .56, 0.13]}
+                        opacity={ props.mugModeOn ? 1 : 0}
+                        // position={[position.x, position.y, position.z]}
                         // rotation-x={[Math.PI * -0.5]}
                         // rotation-z={[Math.PI * -0.174]}
-                        visible={false}
+                        // visible={false}
+                        onPointerOver={ (e) => {e.stopPropagation(); }  }
+                        onClick={ (e) => {e.stopPropagation();} }
                         occlude
                     >
                         <div className='mugWrapper'>
@@ -333,7 +353,7 @@ export function HtmlPopups(props) {
                         </a>
                         </div>
                     </Html>
-                </e.group>
+               
             </SheetProvider>
     </>
 }

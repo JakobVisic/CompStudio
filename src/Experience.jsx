@@ -1,7 +1,7 @@
 // Main Imports
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
-import { useFrame, extend } from '@react-three/fiber'
+import { useFrame, extend, useThree } from '@react-three/fiber'
 import { useCursor, Html, Backdrop, CameraControls, ContactShadows, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, GizmoHelper, Float, PivotControls, Stage } from '@react-three/drei'
 import { Leva, useControls } from 'leva'
 
@@ -37,7 +37,8 @@ export default function Experience({start})
 {
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-
+    const { size } = useThree()
+    console.log('view port width ' + size.width);
 
     const yourFunction = async () => {
 
@@ -65,24 +66,24 @@ export default function Experience({start})
       yourFunction();
 
     // for leva testing
-    let { position, rotation, size } = useControls({
-        position: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        rotation: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        size: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
+    // let { position, rotation, size } = useControls({
+    //     position: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     rotation: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     size: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
 
-    })
+    // })
 
     // const [showOverlay, setShowOverlay] = useState(false);
     const handleButtonClick = () => {
@@ -95,6 +96,9 @@ export default function Experience({start})
     const [mugModeOn, setMugModeOn] = useState(false);
     const [phoneModeOn, setPhoneModeOn] = useState(false);
     const [monitorModeOn, setMonitorModeOn] = useState(false);
+
+    const [active, setActive] = useState(false)
+   
 
     return <>
         <MyContext.Provider
@@ -117,7 +121,9 @@ export default function Experience({start})
                 sheet={getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')}
             >   
                 {/* <Stage intensity={0.001} shadows="contact" > */}
-
+                <group 
+                    scale={(size.width /5)} 
+                >
                     <Float
                         speed ={deskModeOn ? 0 : 0.9} // Animation speed, defaults to 1
                         rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
@@ -164,6 +170,7 @@ export default function Experience({start})
                             />
                         </group>
                 {/* </Stage> */}
+                </group>
             </SheetProvider>
         </MyContext.Provider>
     </>
