@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import { useFrame, extend, useThree } from '@react-three/fiber'
 import { useCursor, Html, Backdrop, CameraControls, ContactShadows, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, GizmoHelper, Float, PivotControls, Stage } from '@react-three/drei'
-import { Leva, useControls } from 'leva'
+// import { Leva, useControls } from 'leva'
 
 
 // theatre.js stuff

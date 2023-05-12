@@ -2,7 +2,7 @@
 import { useCursor, Html, CameraControls, PresentationControls, shaderMaterial, Sparkles, useGLTF, OrbitControls, Grid, Loader, Stage } from '@react-three/drei'
 import { useFrame, extend, Canvas, useThree } from '@react-three/fiber'
 import { useRef, useState, useHelper, useEffect } from 'react'
-import { Leva } from 'leva'
+// import { Leva } from 'leva'
 
 
 import { LoadingScreen }  from './LoadingScreen.jsx'

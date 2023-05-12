@@ -14,7 +14,7 @@ import React, { useRef, useState, useContext } from 'react'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useCursor, Html, CameraControls } from '@react-three/drei'
-import { useControls } from 'leva'
+// import { useControls } from 'leva'
 
 /**
  * Theatre.js Imports
@@ -35,23 +35,23 @@ export function HtmlPopups(props) {
         websiteLink = "";
     }
 
-    let { position, rotation, size } = useControls({
-        position: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        rotation: {
-          x: 0,
-          y: 0,
-          z: 0
-        },
-        size: {
-          x: 0,
-          y: 0,
-          z: 0
-        }
-    })
+    // let { position, rotation, size } = useControls({
+    //     position: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     rotation: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     },
+    //     size: {
+    //       x: 0,
+    //       y: 0,
+    //       z: 0
+    //     }
+    // })
   
     return <>
             <SheetProvider 
@@ -308,7 +308,7 @@ export function HtmlPopups(props) {
                     Mug
                 ***************************************************/}
             
-                    <Html
+                    {/* <Html
                         wrapperClass="htmlMug"
                         style={{
                             // opacity: props.mugModeOn ?  1 : 0,
@@ -352,7 +352,7 @@ export function HtmlPopups(props) {
                             BUY ME A COFFEE
                         </a>
                         </div>
-                    </Html>
+                    </Html> */}
                
             </SheetProvider>
     </>
